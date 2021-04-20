@@ -31,6 +31,10 @@ async def on_message(message):
 	if message.content.startswith('$snap'):
 		await message.channel.send(file=discord.File('thanos.gif'))
 
+	if message.content.startswith('$thumbsup'):
+		emoji = '\U0001F44D'
+		await message.add_reaction(emoji)
+
 	if message.content.startswith('$help'):
 		await message.channel.send('Happy to help. To start my prefix is $ put that in front of any of the listed commands to activate me. \n My current supported commands include: \n $hello \n $website \n $wholesome \n $joke \n $puppy \n snap \n $help')
-client.run('Place token here')
+client.run('your token here')
