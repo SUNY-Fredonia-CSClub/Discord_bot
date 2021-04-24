@@ -1,6 +1,8 @@
 #Made by Cameron Showard for the Suny Fredonia Computer Science Club
 
 import discord
+import os
+import random
 
 client = discord.Client()
 
@@ -26,10 +28,19 @@ async def on_message(message):
 		await message.channel.send('A girl named Autumn tried to prank me. I didn’t fall for it!')
 
 	if message.content.startswith('$puppy'):
-		await message.channel.send(file=discord.File('puppy.jpg'))
-
+		file = os.listdir('puppies/')
+		dog=[]
+		for i in file:
+			dog.append(i)
+		response = random.choice(dog)
+		await message.channel.send(file=discord.File('puppies/'+response))
 	if message.content.startswith('$snap'):
-		await message.channel.send(file=discord.File('thanos.gif'))
+		file = os.listdir('Thanos/')
+		thanos = []
+		for i in file:
+			thanos.append(i)
+		response = random.choice(thanos)
+		await message.channel.send(file=discord.File('Thanos/' + response))
 
 	if message.content.startswith('$thumbsup'):
 		emoji = '\U0001F44D'
@@ -37,4 +48,4 @@ async def on_message(message):
 
 	if message.content.startswith('$help'):
 		await message.channel.send('Happy to help. To start my prefix is $ put that in front of any of the listed commands to activate me. \n My current supported commands include: \n $hello \n $website \n $wholesome \n $joke \n $puppy \n snap \n $help')
-client.run('your token here')
+client.run('Your token here')
