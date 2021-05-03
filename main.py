@@ -1,13 +1,18 @@
 #Made by Cameron Showard for the Suny Fredonia Computer Science Club
 
 import discord
+from discord.ext import commands
 import os
 import random
+
+
 
 client = discord.Client()
 
 @client.event
 async def on_ready():
+	await client.change_presence(status = discord.Status.idle, activity=discord.Game('Ready to help!'))
+	print ('Bot is ready! \n')
 	print('We have logged in as {0.user}'.format(client))
 
 @client.event
